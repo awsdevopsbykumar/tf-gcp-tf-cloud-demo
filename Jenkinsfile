@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/tf-git-jenkins && terraform init'
+                sh 'cd /var/lib/jenkins/workspace/pipeline-with-github-vandana && terraform init'
             }
         }
         stage('Terraform Apply') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/tf-git-jenkins && terraform apply -auto-approve'
+                sh 'cd /var/lib/jenkins/workspace/pipeline-with-github-vandana && terraform apply -auto-approve'
             }
         }
     }
