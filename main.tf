@@ -30,8 +30,15 @@ variable "rnd" {
 }
 
 
+resource "random_string" "compute_name" {
+  length  = 4
+  special = false
+  upper   = false
+}
+
+
 resource "google_compute_instance" "default" {
-  name         = "example-instance${var.rnd}"
+  name         = "example-instance${random_string.compute_name.result}"
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
 
