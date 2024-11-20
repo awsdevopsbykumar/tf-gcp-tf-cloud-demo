@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Terraform Init') {
             steps {
-                sh 'cd ./tf-gcp-tf-cloud-demo && terraform init'
+                sh 'cd /var/lib/jenkins/workspace/tf-git-jenkins && terraform init'
             }
         }
         stage('Terraform Apply') {
             steps {
-                sh 'cd ./tf-gcp-tf-cloud-demo && terraform apply -auto-approve'
+                sh 'cd /var/lib/jenkins/workspace/tf-git-jenkins && terraform apply -auto-approve'
             }
         }
     }
