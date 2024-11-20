@@ -1,20 +1,20 @@
 # Configure the Google Cloud provider
 provider "google" {
-  credentials = var.GOOGLE_CREDENTIALS
+  credentials = file("/opt/temp/key.json")
   project = "alert-autumn-442107-g2"
   region  = "us-east1-b"
 }
 
-terraform { 
-  cloud { 
-    
-    organization = "awsdevopsbykumar" 
-
-    workspaces { 
-      name = "tf-gcp-tf-cloud-demo" 
-    } 
-  } 
-}
+#terraform { 
+#  cloud { 
+#    
+#    organization = "awsdevopsbykumar" 
+#
+#    workspaces { 
+#      name = "tf-gcp-tf-cloud-demo" 
+#    } 
+#  } 
+#}
 
 variable "GOOGLE_CREDENTIALS" {
  default = ""
