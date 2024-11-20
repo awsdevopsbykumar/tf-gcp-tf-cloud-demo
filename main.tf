@@ -25,13 +25,13 @@ variable "project" {
  default = ""
 }
 
-resource "random_string" "test" {
-  length = 4
-  lower  = true
+variable "rnd" {
+ default = 100
 }
 
+
 resource "google_compute_instance" "default" {
-  name         = "example-instance-${random_string.test.id}"
+  name         = "example-instance${var.rnd}"
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
 
