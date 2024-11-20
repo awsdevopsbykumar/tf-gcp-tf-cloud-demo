@@ -31,7 +31,7 @@ resource "random_string" "test" {
 }
 
 resource "google_compute_instance" "default" {
-  name         = "example-instance-${random_string.test}"
+  name         = "example-instance-${random_string.test.id}"
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
 
