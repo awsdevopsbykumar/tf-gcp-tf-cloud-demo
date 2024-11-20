@@ -16,12 +16,6 @@ provider "google" {
 #  } 
 #}
 
-resource "random_id" "rng" {
-  keepers = {
-    first = "${timestamp()}"
-  }     
-  byte_length = 8
-}
 
 variable "GOOGLE_CREDENTIALS" {
  default = ""
@@ -31,8 +25,13 @@ variable "project" {
  default = ""
 }
 
+resource "random_string" "test" {
+  length = 4
+  lower  = true
+}
+
 resource "google_compute_instance" "default" {
-  name         = "example-instance-${random_id.rng.first}"
+  name         = "example-instance-${random_string.test}"
   machine_type = "n1-standard-1"
   zone         = "us-central1-a"
 
